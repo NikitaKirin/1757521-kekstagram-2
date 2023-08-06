@@ -38,7 +38,7 @@ function getPhotoDescription() {
   photoDescriptionsIds.push(id);
   return {
     id,
-    url: `img/avatar-${id}.jpg`,
+    url: `photos/${id}.jpg`,
     description: 'Тестовое описание!',
     likes: getRandomNumber(15, 200),
     comments: Array.from({length: getRandomNumber(1, 10)}, getComment),
