@@ -1,0 +1,13 @@
+/* Form validation styles  */
+
+.has-danger input,
+.has-danger textarea {
+  border: 3px solid red;
+}
+
+.pristine-error {
+  width: 50%;
+  margin: -10px auto 10px;
+  background: white;
+  color: red;
+}
