@@ -38,6 +38,13 @@ const onControlSmallerClick = () => {
   }
 };
 
+const resetFilters = () => {
+  sliderElement.noUiSlider.updateOptions(filterConfigs['default']);
+  imagePreview.classList.remove(...imagePreview.classList);
+  effectLayout.classList.add('hidden');
+  imagePreview.style = '';
+};
+
 const onEffectButtonClick = (evt) => {
   if (evt.target.matches('input[type="radio"]')) {
     const filterType = evt.target.value;
@@ -60,3 +67,5 @@ const onEffectButtonClick = (evt) => {
 scaleControlSmaller.addEventListener('click', onControlSmallerClick);
 scaleControlBigger.addEventListener('click', onControlBiggerClick);
 effectsList.addEventListener('click', onEffectButtonClick);
+
+export {resetFilters};

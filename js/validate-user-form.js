@@ -1,8 +1,6 @@
 import {hasDuplicates} from './util.js';
 
-const form = document.querySelector('#upload-select-image');
-
-function validateHashtags(value) {
+const validateHashtags = (value) => {
   if (value.trim() === '') {
     return true;
   }
@@ -18,22 +16,8 @@ function validateHashtags(value) {
     }
   });
   return valid;
-}
+};
 
-function validateComment(value) {
-  return value.length >= 0 && value.length <= 140;
-}
+const validateComment = (value) => value.length >= 0 && value.length <= 140;
 
-if (form) {
-  const pristine = new Pristine(form, {
-    classTo: 'img-upload__field-wrapper',
-    errorTextParent: 'img-upload__field-wrapper'
-  });
-  pristine.addValidator(form.querySelector('.text__hashtags'), validateHashtags, 'Invalid hashtags', 1);
-  pristine.addValidator(form.querySelector('.text__description'), validateComment, 'Invalid comment', 1);
-  form.addEventListener('submit', (evt) => {
-    if (!pristine.validate()) {
-      evt.preventDefault();
-    }
-  });
-}
+export {validateHashtags, validateComment};

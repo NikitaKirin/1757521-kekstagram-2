@@ -10,4 +10,20 @@ const getData = (onSuccess, onFail) => {
     .catch((error) => onFail(error));
 };
 
-export {getData};
+const postData = (onSuccess, onFail, data) => {
+  fetch('https://26.javascript.pages.academy/kekstagram',
+    {
+      method: 'POST',
+      body: data
+    })
+    .then((response) => {
+      if (response.ok) {
+        onSuccess();
+      } else {
+        throw new Error('Ошибка при отправке данных');
+      }
+    })
+    .catch((error) => onFail(error));
+};
+
+export {getData, postData};
